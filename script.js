@@ -4,19 +4,24 @@ const todoList = document.getElementById("todo-list");
 
 function addTodo() {
   const todoText = todoInput.value.trim();
-
-  console.log("Todo input value:", todoText);
-
   if (todoText === "") return;
 
   const li = document.createElement("li");
   li.textContent = todoText;
 
-  console.log("New todo item created:", li);
+  const deleteButton = document.createElement("button");
+  deleteButton.textContent = "Delete";
+  deleteButton.classList.add("delete-button");
+
+  li.appendChild(deleteButton);
 
   todoList.appendChild(li);
 
   todoInput.value = "";
+
+  deleteButton.addEventListener("click", () => {
+    todoList.removeChild(li);
+  });
 }
 
 todoForm.addEventListener("submit", (e) => {
