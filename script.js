@@ -19,6 +19,10 @@ function addTodo() {
 
   todoInput.value = "";
 
+  li.addEventListener("click", () => {
+    li.classList.toggle("completed");
+  });
+
   deleteButton.addEventListener("click", () => {
     todoList.removeChild(li);
   });
